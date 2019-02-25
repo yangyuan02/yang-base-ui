@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <base-button>button</base-button>
+    <base-button @handleClick="handleClick">button</base-button>
   </div>
 </template>
 
@@ -10,6 +10,11 @@ export default {
   name: 'app',
   components: {
     BaseButton
+  },
+  methods: {
+    handleClick() {
+      console.log(22);
+    }
   }
 };
 </script>
