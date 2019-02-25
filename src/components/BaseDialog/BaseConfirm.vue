@@ -1,0 +1,1 @@
+import BaseConfirmButton from './BaseConfirmButton'
