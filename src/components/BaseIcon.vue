@@ -1,5 +1,5 @@
 <template>
-  <i class="icon" :class="'icon-' + type" :style="{'color': color, 'fontSize': size + 'px'}"></i>
+  <i class="iconfont" :class="['icon-' + type, className]" :style="{'color': color, 'fontSize': size + 'px'}"></i>
 </template>
 <script>
 export default {
@@ -15,6 +15,10 @@ export default {
     color: {
       type: String,
       default: '#000000'
+    },
+    className: {
+      type: String,
+      default: ''
     }
   }
 };

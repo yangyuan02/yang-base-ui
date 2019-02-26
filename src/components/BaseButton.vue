@@ -1,98 +1,79 @@
 <template>
-  <button class="v-btn" :id="id" :class="customClass" :name="name" :disabled="disabled" :large="large" :marKup="marKup" @click="handleClick">
-    <slot></slot>
+  <button class="ui-button" :class="className" :disabled="disabled" :type="type" @click="handleClick">
+    <base-icon :type="icon" v-if="icon"></base-icon>
+    <span>{{text}}</span>
   </button>
 </template>
 
 <script>
+import BaseIcon from './BaseIcon';
 export default {
-  // name: 'v-button',
   props: {
-    id: {
+    text: {
       type: String,
-      default: null
+      default: ''
     },
-    customClass: {
+    icon: {
       type: String,
-      default: null
+      default: ''
     },
-    name: {
+    type: {
       type: String,
-      default: null
+      default: ''
     },
     disabled: {
       type: Boolean,
       default: false
     },
-    large: {
-      type: Boolean,
-      default: false
-    },
-    marKup: {
+    className: {
       type: String,
-      default: 'default'
-    }
+      default: ''
+    },
+    onClick: {}
+  },
+  components: {
+    BaseIcon
   },
   methods: {
     handleClick(e) {
-      this.$emit('handleClick', e);
+      this.$emit('onClick', e);
     }
   }
 };
 </script>
 
-<style lang="less">
-// @default-color: #9f9f9f;
-// @default-hover-color: #2c3e50;
-// @primary-color: #22a7f0;
-// @primary-hover-color: #0d7cb9;
-// @success-color: #019875;
-// @success-hover-color: #01654e;
-// @warning-color: #f4b350;
-// @warning-hover-color: #e9920f;
-// @error-color: #d91e18;
-// @error-hover-color: #941410;
-// @disabled-color: #dadada;
-// .button-color(@color, @hover-color) {
-//   color: @color;
-//   box-shadow: 0 0 0 1px @color inset;
-//   &:hover {
-//     color: @hover-color;
-//     box-shadow: 0 0 0 1px @hover-color inset;
-//   }
-// }
-// .v-btn {
-//   cursor: pointer;
-//   border: none;
-//   background: 0 0;
-//   border-radius: 3.5px;
-//   font-family: 'Avenir', Helvetica, Arial, sans-serif;
-//   font-size: 1rem;
-//   padding: 6px 24px;
-//   text-decoration: none;
-//   outline: 0;
-//   &:disabled {
-//     cursor: not-allowed;
-//     color: @disabled-color !important;
-//     box-shadow: 0 0 0 1px @disabled-color inset !important;
-//   }
-//   &[large='true'] {
-//     font-size: 1.4rem;
-//   }
-//   &[markup='default'] {
-//     .button-color(@default-color, @default-hover-color);
-//   }
-//   &[markup='primary'] {
-//     .button-color(@primary-color, @primary-hover-color);
-//   }
-//   &[markup='success'] {
-//     .button-color(@success-color, @success-hover-color);
-//   }
-//   &[markup='warning'] {
-//     .button-color(@warning-color, @warning-hover-color);
-//   }
-//   &[markup='error'] {
-//     .button-color(@error-color, @error-hover-color);
-//   }
-// }
+<style lang="less" scoped>
+@disabled-color: #dadada;
+.borde-background-color(@brColor, @bgColor, @color) {
+  border-color: @brColor;
+  background-color: @bgColor;
+  color: @color;
+}
+.ui-button {
+  padding: 12px 20px;
+  font-size: 14px;
+  line-height: 1;
+  cursor: pointer;
+  border-width: 1px;
+  border-style: solid;
+  .borde-background-color(#dcdfe6, #fff, #606266);
+  &:disabled {
+    cursor: not-allowed;
+    color: @disabled-color;
+  }
+  &:loading {
+    cursor: not-allowed;
+    color: @disabled-color;
+  }
+  &[type='primary'] {
+    .borde-background-color(#409eff, #409eff, #fff);
+  }
+  &[type='success'] {
+    .borde-background-color(#67c23a, #67c23a, #fff);
+  }
+  &[type='warning'] {
+    .borde-background-color(#e6a23c, #e6a23c, #fff);
+  }
+}
 </style>
+
