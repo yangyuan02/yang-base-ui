@@ -1,6 +1,6 @@
 <template>
   <button class="ui-button" :class="className" :disabled="disabled" :type="type" @click="handleClick">
-    <base-icon :type="icon" v-if="icon"></base-icon>
+    <base-icon v-if="icon" :type="icon" :size="16" className="mgL10"></base-icon>
     <span>{{text}}</span>
   </button>
 </template>

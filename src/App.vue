@@ -42,12 +42,10 @@ export default {
 
 <style lang="less">
 @import './style/reset.less';
-@import './style/main.less';
 @import './style/iconfont.css';
+@import './style/main.less';
+@import './style/utils.css';
 #app {
   margin: 10px;
-}
-.mgL10 {
-  margin-right: 10px;
 }
 </style>
