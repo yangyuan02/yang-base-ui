@@ -2,12 +2,14 @@
   <div id="app">
     <!-- <base-button @handleClick="handleClick">button</base-button> -->
     <base-loading :isLoading="isLoading"></base-loading>
+    <base-icon type="ceshi"></base-icon>
   </div>
 </template>
 
 <script>
 // import BaseButton from './components/BaseButton';
 import BaseLoading from './components/BaseLoading';
+import BaseIcon from './components/BaseIcon';
 export default {
   name: 'app',
   data() {
@@ -17,7 +19,8 @@ export default {
   },
   components: {
     // BaseButton,
-    BaseLoading
+    BaseLoading,
+    BaseIcon
   },
   methods: {
     handleClick() {

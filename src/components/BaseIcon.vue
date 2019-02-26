@@ -1,5 +1,5 @@
 <template>
-  <i class="icon" :class="'icon' + type" :style="{'color': color, 'fontSize': size + 'px'}"></i>
+  <i class="icon" :class="'icon-' + type" :style="{'color': color, 'fontSize': size + 'px'}"></i>
 </template>
 <script>
 export default {
