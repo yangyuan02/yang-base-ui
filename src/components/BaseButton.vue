@@ -11,30 +11,36 @@ import BaseIcon from './BaseIcon';
 export default {
   props: {
     text: {
+      // 按钮文字
       type: String,
       default: ''
     },
     icon: {
+      // 按钮图标类型
       type: String,
       default: ''
     },
     type: {
+      // 按钮类型
       type: String,
       default: ''
     },
     disabled: {
+      // 是否禁用
       type: Boolean,
       default: false
     },
     className: {
+      // 外部class类
       type: String,
       default: ''
     },
     isLoading: {
+      // 是否加载状态
       type: Boolean,
       default: false
     },
-    onClick: {}
+    onClick: {} // 点击按钮触发的回调
   },
   components: {
     BaseIcon
