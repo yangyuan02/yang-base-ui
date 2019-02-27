@@ -1,15 +1,20 @@
 <template>
   <div id="app">
     <div>
-      <p>Button按钮</p>
+      <p style="margin-bottom:20px;">Button按钮</p>
       <base-button @onClick="handleClick" text="默认按钮" className="mRight10" icon="shezhi"></base-button>
       <base-button @onClick="handleClick" text="主要按钮" icon="shezhi" :isLoading="true" type="primary" className="mRight10"></base-button>
       <base-button @onClick="handleClick" text="成功按钮" :disabled="true" type="success" className="mRight10"></base-button>
       <base-button @onClick="handleClick" text="警告按钮" :disabled="true" type="warning" className="mRight10"></base-button>
     </div>
+    <div style="margin-top:40px;">
+      <p style="margin-bottom:20px;">Checkbox多选框</p>
+      <base-checkbox text="电影" @onClick="handleCheckbox" :value="{text:'电影', id:1}" className="mRight10"></base-checkbox>
+      <base-checkbox text="吃饭" @onClick="handleCheckbox" :value="{text:'吃饭', id:2}" :defaultChecked="true" :disabled="true" className="mRight10"></base-checkbox>
+      <base-checkbox text="打游戏" @onClick="handleCheckbox" :value="{text:'打游戏', id:3}" :checked="true" :disabled="false" className="mRight10"></base-checkbox>
+    </div>
     <!-- <base-loading :isLoading="isLoading"></base-loading> -->
     <!-- <base-icon type="ceshi"></base-icon> -->
-    <!-- <base-checkbox text="电影"></base-checkbox> -->
   </div>
 </template>
 
@@ -17,7 +22,7 @@
 import BaseButton from './components/BaseButton';
 // import BaseLoading from './components/BaseLoading';
 // import BaseIcon from './components/BaseIcon';
-// import BaseCheckbox from './components/BaseCheckbox';
+import BaseCheckbox from './components/BaseCheckbox';
 
 export default {
   name: 'app',
@@ -27,14 +32,17 @@ export default {
     };
   },
   components: {
-    BaseButton
+    BaseButton,
     // BaseLoading,
     // BaseIcon
-    // BaseCheckbox
+    BaseCheckbox
   },
   methods: {
     handleClick(e) {
       console.log(e);
+    },
+    handleCheckbox(e, value) {
+      console.log(value);
     }
   }
 };
