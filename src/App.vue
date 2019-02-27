@@ -3,7 +3,7 @@
     <div>
       <p>Button按钮</p>
       <base-button @onClick="handleClick" text="默认按钮" className="mRight10" icon="shezhi"></base-button>
-      <base-button @onClick="handleClick" text="主要按钮" :isLoading="true" type="primary" className="mRight10"></base-button>
+      <base-button @onClick="handleClick" text="主要按钮" icon="shezhi" :isLoading="true" type="primary" className="mRight10"></base-button>
       <base-button @onClick="handleClick" text="成功按钮" :disabled="true" type="success" className="mRight10"></base-button>
       <base-button @onClick="handleClick" text="警告按钮" :disabled="true" type="warning" className="mRight10"></base-button>
     </div>
