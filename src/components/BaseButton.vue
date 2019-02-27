@@ -1,7 +1,8 @@
 <template>
   <button class="ui-button" :class="className" :disabled="disabled" :type="type" @click="handleClick">
-    <base-icon v-if="icon" :type="icon" :size="16" className="mgL10"></base-icon>
-    <span>{{text}}</span>
+    <base-icon v-if="icon" :type="icon" :size="16" className="mRight10"></base-icon>
+    <base-icon v-if="isLoading" type="loading" :size="16" className="mRight10"></base-icon>
+    <span>{{isLoading ? '加载中' : text}}</span>
   </button>
 </template>
 
@@ -29,6 +30,10 @@ export default {
       type: String,
       default: ''
     },
+    isLoading: {
+      type: Boolean,
+      default: false
+    },
     onClick: {}
   },
   components: {
@@ -36,6 +41,9 @@ export default {
   },
   methods: {
     handleClick(e) {
+      if (this.isLoading) {
+        return false;
+      }
       this.$emit('onClick', e);
     }
   }

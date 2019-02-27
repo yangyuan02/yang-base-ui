@@ -1,5 +1,5 @@
 <template>
-  <i class="iconfont" :class="['icon-' + type, className]" :style="{'color': color, 'fontSize': size + 'px'}"></i>
+  <i class="ui-icon iconfont" :class="['icon-' + type, className]" :style="{'color': color, 'fontSize': size + 'px'}"></i>
 </template>
 <script>
 export default {
