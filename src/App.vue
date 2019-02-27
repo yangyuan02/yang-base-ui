@@ -13,6 +13,12 @@
       <base-checkbox text="吃饭" @onClick="handleCheckbox" :value="{text:'吃饭', id:2}" :defaultChecked="true" :disabled="true" className="mRight10"></base-checkbox>
       <base-checkbox text="打游戏" @onClick="handleCheckbox" :value="{text:'打游戏', id:3}" :checked="true" :disabled="false" className="mRight10"></base-checkbox>
     </div>
+    <div style="margin-top:40px;">
+      <p style="margin-bottom:20px;">Radio单选框</p>
+      <base-radio text="电影" @onClick="handleRadio" :value="{text:'电影', id:1}" className="mRight10"></base-radio>
+      <base-radio text="吃饭" @onClick="handleRadio" :value="{text:'吃饭', id:2}" :defaultChecked="true" :disabled="true" className="mRight10"></base-radio>
+      <base-radio text="打游戏" @onClick="handleRadio" :value="{text:'打游戏', id:3}" :checked="true" :disabled="false" className="mRight10"></base-radio>
+    </div>
     <!-- <base-loading :isLoading="isLoading"></base-loading> -->
     <!-- <base-icon type="ceshi"></base-icon> -->
   </div>
@@ -23,7 +29,7 @@ import BaseButton from './components/BaseButton';
 // import BaseLoading from './components/BaseLoading';
 // import BaseIcon from './components/BaseIcon';
 import BaseCheckbox from './components/BaseCheckbox';
-
+import BaseRadio from './components/BaseRadio';
 export default {
   name: 'app',
   data() {
@@ -35,13 +41,17 @@ export default {
     BaseButton,
     // BaseLoading,
     // BaseIcon
-    BaseCheckbox
+    BaseCheckbox,
+    BaseRadio
   },
   methods: {
     handleClick(e) {
       console.log(e);
     },
     handleCheckbox(e, value) {
+      console.log(value);
+    },
+    handleRadio(e, value) {
       console.log(value);
     }
   }

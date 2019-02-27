@@ -1,1 +1,1 @@
-import BaseCheckbox from './BaseCheckboxGroup'
+import BaseCheckbox from './BaseCheckboxGroup';
