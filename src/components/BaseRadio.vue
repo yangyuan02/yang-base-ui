@@ -62,6 +62,74 @@ export default {
   label {
     display: flex;
     align-items: center;
+    input {
+      &[type='radio'] {
+        position: relative;
+        margin-top: 5px;
+        margin-right: 4px;
+        vertical-align: -4px;
+        border: none;
+        background-color: transparent;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        -ms-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        cursor: pointer;
+      }
+
+      &[type='radio']:focus {
+        outline: none;
+      }
+
+      &[type='radio']:before,
+      &[type='radio']:after {
+        content: '';
+        display: block;
+        width: 18px;
+        height: 18px;
+        margin-top: -3px;
+        border-radius: 50%;
+        -webkit-transition: 240ms;
+        -o-transition: 240ms;
+        -ms-transition: 240ms;
+        -moz-transition: 240ms;
+        transition: 240ms;
+      }
+
+      &[type='radio']:before {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background-color: #2196f3 !important;
+        -webkit-transform: scale(0);
+        -ms-transform: scale(0);
+        -o-transform: scale(0);
+        -moz-transform: scale(0);
+        transform: scale(0);
+      }
+
+      &[type='radio']:checked:before {
+        -webkit-transform: scale(0.7);
+        -ms-transform: scale(0.7);
+        -o-transform: scale(0.7);
+        -moz-transform: scale(0.7);
+        transform: scale(0.7);
+      }
+
+      &[type='radio']:disabled:checked:before {
+        background-color: #bbbbbb !important;
+      }
+
+      &[type='radio']:checked:after {
+        border-color: #2196f3 !important;
+      }
+
+      &[type='radio']:disabled:after,
+      &[type='radio']:disabled:checked:after {
+        border-color: #bbbbbb !important;
+      }
+    }
   }
 }
 </style>
