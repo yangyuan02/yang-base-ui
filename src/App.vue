@@ -19,6 +19,10 @@
       <base-radio text="吃饭" @onClick="handleRadio" :value="{text:'吃饭', id:2}" :defaultChecked="true" :disabled="true" className="mRight10"></base-radio>
       <base-radio text="打游戏" @onClick="handleRadio" :value="{text:'打游戏', id:3}" :checked="true" :disabled="false" className="mRight10"></base-radio>
     </div>
+    <div style="margin-top:40px;">
+      <p style="margin-bottom:20px;">Switch</p>
+      <base-switch></base-switch>
+    </div>
     <!-- <base-loading :isLoading="isLoading"></base-loading> -->
     <!-- <base-icon type="ceshi"></base-icon> -->
   </div>
@@ -30,6 +34,7 @@ import BaseButton from './components/BaseButton';
 // import BaseIcon from './components/BaseIcon';
 import BaseCheckbox from './components/BaseCheckbox';
 import BaseRadio from './components/BaseRadio';
+import BaseSwitch from './components/BaseSwitch';
 export default {
   name: 'app',
   data() {
@@ -42,7 +47,8 @@ export default {
     // BaseLoading,
     // BaseIcon
     BaseCheckbox,
-    BaseRadio
+    BaseRadio,
+    BaseSwitch
   },
   methods: {
     handleClick(e) {
