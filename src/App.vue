@@ -21,11 +21,8 @@
     </div>
     <div style="margin-top:40px;">
       <p style="margin-bottom:20px;">Switch</p>
-      <base-switch @onClick="handleSwitch" :value="{text:'电影', id:1}" :checked="true" :disabled="false" className="mRight10"></base-switch>
-      <base-switch @onClick="handleSwitch" :value="{text:'吃饭', id:2}" :checked="false" :disabled="false"></base-switch>
-      <base-switch @onClick="handleSwitch" :value="{text:'打游戏', id:3}" :checked="false" :disabled="true"></base-switch>
-      <!-- <base-switch @onClick="handleSwitch" :value="{text:'吃饭', id:2}" :checked="true" :disabled="false" className="mRight10"></base-switch> -->
-      <!-- <base-switch @onClick="handleSwitch" :value="{text:'打游戏', id:3}" :defaultChecked="false" :disabled="true" className="mRight10"></base-switch> -->
+      <base-switch :value="value" :FId="FId" :index="index" class="vswitch" :handle="true" @changeSwitch="changeSwitch"></base-switch>
+      <base-switch :value="value" :FId="FId" :index="index" class="vswitch" :handle="true" @changeSwitch="changeSwitch"></base-switch>
     </div>
     <!-- <base-loading :isLoading="isLoading"></base-loading> -->
     <!-- <base-icon type="ceshi"></base-icon> -->
@@ -43,7 +40,10 @@ export default {
   name: 'app',
   data() {
     return {
-      isLoading: true
+      isLoading: true,
+      value: false,
+      FId: '123',
+      index: 0
     };
   },
   components: {
@@ -66,6 +66,11 @@ export default {
     },
     handleSwitch(e, value) {
       console.log(value);
+    },
+    changeSwitch(checked, id, index) {
+      this.value = !this.value;
+      console.log(this.value);
+      console.log(index);
     }
   }
 };

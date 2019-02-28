@@ -1,126 +1,121 @@
 <template>
-  <div class="ui-switch-container" :class="className">
-    <input type="checkbox" class="switch" :disabled="disabled" :checked="isChecked" @click="handleClick" />
-    <span for="switch"></span>
+  <div class="weui-div" @click.stop="toggle">
+    <span class="weui-switch" :class="{'weui-switch-on' : me_checked}" :value="value"></span>
+    <div v-if='!value' class="weui-div-2">未处理</div>
+    <div v-if='value' class="weui-div-1">已处理</div>
   </div>
 </template>
-
 <script>
 export default {
   props: {
-    text: {
-      // checkbox显示的文本
+    value: {
+      type: Boolean,
+      default: true
+    },
+    FId: {
       type: String,
       default: ''
     },
-    defaultChecked: {
-      // 是否默认选中
-      type: Boolean,
-      default: false
-    },
-    checked: {
-      // 选中
-      type: Boolean,
-      default: false
-    },
-    onClick: {
-      // onClick(checked, value)
-    },
-    value: {}, // 在回调中作为第二个参数返回
-    size: {
-      // 大小
+    index: {
       type: Number,
-      default: 16
+      default: 11090
     },
-    disabled: {
-      // 是否禁用
+    handle: {
       type: Boolean,
-      default: false
-    },
-    className: {
-      // 外部class类
-      type: String,
-      default: ''
+      default: true
+    }
+  },
+  data() {
+    return {
+      me_checked: this.value
+    };
+  },
+  watch: {
+    value() {
+      this.me_checked = this.value;
     }
   },
   methods: {
-    handleClick(e) {
-      this.$emit('onClick', e, this.value);
-    }
-  },
-  computed: {
-    isChecked: function() {
-      return this.checked || this.defaultChecked;
+    toggle() {
+      // 是否可点击
+      if (this.handle === true) {
+        this.me_checked = !this.me_checked;
+        this.$emit('changeSwitch', this.me_checked, this.FId, this.index);
+      }
     }
   }
 };
 </script>
-<style lang="less" scoped>
-@switchHeight: 30px;
-@switchWidth: 60px; /*改变大小只需要改变这个两个的值，后面会用到这两个值*/
-.ui-switch-container {
-  height: @switchHeight;
-  width: @switchWidth;
-  margin-bottom: 5px;
-  display: inline-block;
-  .switch {
-    display: none;
-    &:checked ~ span:after {
-      opacity: 1;
-    }
-
-    &:checked ~ span:before {
-      opacity: 0;
-    }
-
-    &:checked ~ span {
-      background-color: red;
-    }
-    &:disabled ~ span {
-      // background-color: #bbb;
-      cursor: not-allowed;
-    }
-  }
-
-  span {
-    display: block;
-    background-color: #eeeeee;
-    height: 100%;
-    width: 100%;
-    cursor: pointer;
-    border-radius: 25px;
-    &:before {
-      content: '';
-      display: block;
-      border-radius: 25px;
-      height: 100%;
-      width: @switchHeight;
-      background-color: white;
-      opacity: 1;
-      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.08);
-      -ms-transition: all 0.2s ease; /* IE 9 */
-      -moz-transition: all 0.2s ease; /* Firefox */
-      -webkit-transition: all 0.2s ease; /* Safari and Chrome */
-      -o-transition: all 0.2s ease; /* Opera */
-    }
-    &:after {
-      position: relative;
-      top: -@switchHeight;
-      left: @switchHeight;
-      content: '';
-      display: block;
-      border-radius: 25px;
-      height: 100%;
-      width: @switchHeight;
-      background-color: white;
-      opacity: 0;
-      box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.08);
-      -ms-transition: all 0.2s ease; /* IE 9 */
-      -moz-transition: all 0.2s ease; /* Firefox */
-      -webkit-transition: all 0.2s ease; /* Safari and Chrome */
-      -o-transition: all 0.2s ease; /* Opera */
-    }
-  }
+<style>
+.weui-div {
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+  width: 82px;
+  height: 32px;
+}
+.weui-div-1 {
+  position: absolute;
+  left: 10px;
+  top: 0;
+  line-height: 32px;
+  font-size: 12px;
+  color: #333333;
+}
+.weui-div-2 {
+  position: absolute;
+  right: 11px;
+  top: 0;
+  line-height: 32px;
+  font-size: 12px;
+  color: #999999;
+}
+.weui-switch {
+  display: block;
+  position: relative;
+  width: 82px;
+  height: 32px;
+  border: 1px solid #dfdfdf;
+  outline: 0;
+  border-radius: 16px;
+  box-sizing: border-box;
+  background-color: #dfdfdf;
+  transition: background-color 0.1s, border 0.1s;
+  cursor: pointer;
+}
+.weui-switch:before {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #e6e6e6;
+  transition: transform 0.35s cubic-bezier(0.45, 1, 0.4, 1);
+}
+.weui-switch:after {
+  content: ' ';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  transition: transform 0.35s cubic-bezier(0.4, 0.4, 0.25, 1.35);
+}
+.weui-switch-on {
+  border-color: #f2dc37;
+  background-color: #f2dc37;
+}
+.weui-switch-on:before {
+  border-color: #f2dc37;
+  background-color: #f2dc37;
+}
+.weui-switch-on:after {
+  transform: translateX(50px);
 }
 </style>
 
