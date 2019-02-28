@@ -24,6 +24,10 @@
       <base-switch :value="value" :FId="FId" :index="index" class="vswitch" :handle="true" @changeSwitch="changeSwitch"></base-switch>
       <base-switch :value="value" :FId="FId" :index="index" class="vswitch" :handle="true" @changeSwitch="changeSwitch"></base-switch>
     </div>
+    <div style="margin-top:40px;">
+      <p style="margin-bottom:20px;">Input组件</p>
+      <base-input :text="'创业项目名称'" v-model="projectN" placeholder="测试"></base-input>
+    </div>
     <!-- <base-loading :isLoading="isLoading"></base-loading> -->
     <!-- <base-icon type="ceshi"></base-icon> -->
   </div>
@@ -36,6 +40,7 @@ import BaseButton from './components/BaseButton';
 import BaseCheckbox from './components/BaseCheckbox';
 import BaseRadio from './components/BaseRadio';
 import BaseSwitch from './components/BaseSwitch';
+import BaseInput from './components/BaseInput';
 export default {
   name: 'app',
   data() {
@@ -43,7 +48,8 @@ export default {
       isLoading: true,
       value: false,
       FId: '123',
-      index: 0
+      index: 0,
+      projectN: ''
     };
   },
   components: {
@@ -52,7 +58,8 @@ export default {
     // BaseIcon
     BaseCheckbox,
     BaseRadio,
-    BaseSwitch
+    BaseSwitch,
+    BaseInput
   },
   methods: {
     handleClick(e) {
