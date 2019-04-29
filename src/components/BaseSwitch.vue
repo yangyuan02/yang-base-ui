@@ -7,6 +7,7 @@
 </template>
 <script>
 export default {
+  // https://blog.csdn.net/weixin_36934930/article/details/81118326 参考
   props: {
     value: {
       type: Boolean,
