@@ -9,12 +9,19 @@ export default {
   inheritAttrs: false,
   props: {
     text: {
+      // 表单名称
       type: String,
       default: ''
     },
     value: {
+      // input值
       type: String,
       default: ''
+    },
+    disabled: {
+      // 是否禁用
+      type: Boolean,
+      default: false
     }
   }
 };
