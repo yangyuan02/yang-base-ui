@@ -23,6 +23,21 @@ export default {
     handle: {
       type: Boolean,
       default: true
+    },
+    disabled: {
+      // 是否禁止选择
+      type: Boolean,
+      default: false
+    },
+    activeText: {
+      // 打开时的文字描述
+      type: String,
+      default: '未开启'
+    },
+    inactiveText: {
+      // 关闭时的文字描述
+      type: String,
+      default: '已开启'
     }
   },
   data() {
